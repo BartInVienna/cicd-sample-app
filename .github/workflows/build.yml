@@ -49,7 +49,7 @@ jobs:
         with:
           context: ./webapp
           file: ./webapp/Dockerfile
-          push: false
+          push: true
           tags: bartinvienna/webapp:latest
           outputs: type=docker,dest=/tmp/myapp.tar
 
