@@ -19,3 +19,9 @@ jobs:
       - run: |
           cd webapp
           yarn lint
+        continue-on-error: true
+
+      if: failure()
+      run: |
+        cd webapp
+        yarn lint --debug
