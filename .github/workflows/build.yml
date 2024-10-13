@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+env:
+  ESLINT_USE_FLAT_CONIFG: false
 jobs:
   build:
     runs-on: ubuntu-latest
