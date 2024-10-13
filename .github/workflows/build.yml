@@ -9,19 +9,26 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
+      
       - name: Set up NodeJS
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: |
+      
+      - name: Install dependencies
+        run: |
           cd webapp 
           yarn install
-      - run: |
+      
+      - name: Run linter
+        id: linter
+        run: |
           cd webapp
           yarn lint
         continue-on-error: true
 
-      if: failure()
-      run: |
-        cd webapp
-        yarn lint --debug
+      - name: Debug linter if it fails
+        if: failure()
+        run: |
+          cd webapp
+          yarn lint --debug
