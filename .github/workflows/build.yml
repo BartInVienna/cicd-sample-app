@@ -51,9 +51,4 @@ jobs:
           file: ./webapp/Dockerfile
           push: true
           tags: bartinvienna/webapp:latest
-          outputs: type=docker,dest=/tmp/myapp.tar
-
-      - name: Load Docker image
-        run: |
-          docker load -i /tmp/myapp.tar
-          docker image ls
+          
