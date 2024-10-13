@@ -34,3 +34,16 @@ jobs:
         run: |
           cd webapp
           yarn lint --debug
+
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: ./webapp
+          file: ./webapp/Dockerfile
+          push: false
+          tags: bartinvienna/webapp:latest
+
+
